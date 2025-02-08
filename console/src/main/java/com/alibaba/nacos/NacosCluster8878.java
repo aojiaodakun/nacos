@@ -24,18 +24,27 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 /**
  * Nacos starter.
  *
- * @author nacosc
+ * @author nacos
  */
 @SpringBootApplication(scanBasePackages = "com.alibaba.nacos")
 @ServletComponentScan
 @EnableScheduling
-public class Nacos {
-    
+public class NacosCluster8878 {
+
+    /**
+     * 账户密码，默认存储于derby数据库
+     * com.alibaba.nacos.console.security.nacos.users.NacosUserDetailsServiceImpl#loadUserByUsername(java.lang.String)
+     * nacos
+     * nacos1
+     */
     public static void main(String[] args) {
 
-        System.setProperty("nacos.standalone", "true");
-        System.setProperty("server.port", "8858");
-        SpringApplication.run(Nacos.class, args);
+        System.setProperty("server.port", "8878");
+        System.setProperty("nacos.home", "D:\\source-project\\nacos\\nacos-cluster\\8878");
+        // 开启认证
+        System.setProperty("nacos.core.auth.enabled", "true");
+
+        SpringApplication.run(NacosCluster8878.class, args);
     }
 }
 
