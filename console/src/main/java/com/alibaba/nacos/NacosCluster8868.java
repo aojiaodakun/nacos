@@ -38,13 +38,15 @@ public class NacosCluster8868 {
      * nacos1
      */
     public static void main(String[] args) {
-
-        System.setProperty("server.port", "8868");
-        System.setProperty("nacos.home", "D:\\source-project\\nacos\\nacos-cluster\\8868");
+        String port = "8868";
+        System.setProperty("server.port", port);
+        System.setProperty("address.server.domain", "127.0.0.1");
+        String userDir = System.getProperty("user.dir");
+        String nacosHome = userDir + "\\nacos-cluster\\" + port;
+        System.setProperty("nacos.home", nacosHome);
         // 开启认证
         System.setProperty("nacos.core.auth.enabled", "true");
-
-        SpringApplication.run(NacosCluster8868.class, args);
+        SpringApplication.run(NacosCluster8858.class, args);
     }
 }
 

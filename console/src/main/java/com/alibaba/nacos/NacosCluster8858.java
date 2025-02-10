@@ -22,9 +22,8 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * Nacos starter.
- *
- * @author nacos
+ * TODO
+ * mysql配置
  */
 @SpringBootApplication(scanBasePackages = "com.alibaba.nacos")
 @ServletComponentScan
@@ -38,12 +37,14 @@ public class NacosCluster8858 {
      * nacos1
      */
     public static void main(String[] args) {
-
-        System.setProperty("server.port", "8858");
-        System.setProperty("nacos.home", "D:\\source-project\\nacos\\nacos-cluster\\8858");
+        String port = "8858";
+        System.setProperty("server.port", port);
+        System.setProperty("address.server.domain", "127.0.0.1");
+        String userDir = System.getProperty("user.dir");
+        String nacosHome = userDir + "\\nacos-cluster\\" + port;
+        System.setProperty("nacos.home", nacosHome);
         // 开启认证
         System.setProperty("nacos.core.auth.enabled", "true");
-
         SpringApplication.run(NacosCluster8858.class, args);
     }
 }
